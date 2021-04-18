@@ -43,24 +43,19 @@ namespace GradeBook.GradeBooks
             // find index of averageGrade provided in class AverageGrade
             // Compair with the 20% multiplier to see where it fits. 
 
-            var indexOfAverageGrade = Array.IndexOf(classAverageGrades, averageGrade) + 1;
-
-            var section = indexOfAverageGrade / twentyPercentOfClass;
-
-
-            if (1 > section && section >= 0)
+            if (averageGrade >= classAverageGrades[twentyPercentOfClass - 1])
             {
                 return 'A';
             }
-            else if (2 > section && section >= 1)
+            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 2 - 2])
             {
                 return 'B';
             }
-            else if (3 > section && section >= 2)
+            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 3 - 3])
             {
                 return 'C';
             }
-            else if (4 > section && section >= 3)
+            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 4 - 4])
             {
                 return 'D';
             }
