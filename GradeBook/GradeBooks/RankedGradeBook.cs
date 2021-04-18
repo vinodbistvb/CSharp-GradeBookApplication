@@ -17,57 +17,48 @@ namespace GradeBook.GradeBooks
 
             // List<double> classAverageGrades = new List<double>();
 
-            double[] classAverageGrades = new double[Students.Count];
 
-            if (Students.Count > 5)
+            if (Students.Count < 5)
             {
-                // 20% of the class
-                var twentyPercentOfClass = (int)Math.Ceiling(Students.Count * 0.2);
-                var i = 0;
 
-                foreach (var student in Students)
-                {
-                    classAverageGrades[i] = student.AverageGrade;
-                    i++;
-                }
-
-                // find index of averageGrade provided in class AverageGrade
-                // Compair with the 20% multiplier to see where it fits. 
-
-                var indexOfAverageGrade = Array.IndexOf(classAverageGrades, averageGrade) + 1;
-
-                var section = indexOfAverageGrade % twentyPercentOfClass;
-
-
-                if (2 > section && section > 0)
-                {
-                    return 'A';
-                }
-                else if (3 > section && section > 2)
-                {
-                    return 'B';
-                }
-                else if (3 > section && section > 2)
-                {
-                    return 'C';
-                }
-                else if (3 > section && section > 2)
-                {
-                    return 'D';
-                }
-
-                //foreach (var student in Students)
-                // {
-                //classAverageGrades.Add(student.AverageGrade);
-                // }
-            }
-            else
-            {
-                
                 throw new InvalidOperationException("Number of Students are less than 5");
             }
+            double[] classAverageGrades = new double[Students.Count];
+
+            // 20% of the class
+            var twentyPercentOfClass = (int)Math.Ceiling(Students.Count * 0.2);
+            var i = 0;
+
+            foreach (var student in Students)
+            {
+                classAverageGrades[i] = student.AverageGrade;
+                i++;
+            }
+
+            // find index of averageGrade provided in class AverageGrade
+            // Compair with the 20% multiplier to see where it fits. 
+
+            var indexOfAverageGrade = Array.IndexOf(classAverageGrades, averageGrade) + 1;
+
+            var section = indexOfAverageGrade % twentyPercentOfClass;
 
 
+            if (2 > section && section > 0)
+            {
+                return 'A';
+            }
+            else if (3 > section && section > 2)
+            {
+                return 'B';
+            }
+            else if (3 > section && section > 2)
+            {
+                return 'C';
+            }
+            else if (3 > section && section > 2)
+            {
+                return 'D';
+            }
 
             return 'F';
         }
