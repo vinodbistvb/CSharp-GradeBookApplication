@@ -41,19 +41,19 @@ namespace GradeBook.GradeBooks
 
                 if (2 > section && section > 0)
                 {
-                    averageGrade = 90;
+                    return 'A';
                 }
                 else if (3 > section && section > 2)
                 {
-                    averageGrade = 80;
+                    return 'B';
                 }
                 else if (3 > section && section > 2)
                 {
-                    averageGrade = 70;
+                    return 'C';
                 }
                 else if (3 > section && section > 2)
                 {
-                    averageGrade = 60;
+                    return 'D';
                 }
 
                 //foreach (var student in Students)
@@ -63,13 +63,13 @@ namespace GradeBook.GradeBooks
             }
             else
             {
-                averageGrade = 0;
+                
                 throw new InvalidOperationException("Number of Students are less than 5");
             }
 
 
 
-            return base.GetLetterGrade(averageGrade);
+            return 'F';
         }
     }
 }
