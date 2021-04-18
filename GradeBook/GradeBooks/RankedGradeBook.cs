@@ -48,19 +48,19 @@ namespace GradeBook.GradeBooks
             var section = indexOfAverageGrade % twentyPercentOfClass;
 
 
-            if (2 > section && section > 0)
+            if (2 > section && section >= 0)
             {
                 return 'A';
             }
-            else if (3 > section && section > 2)
+            else if (3 > section && section >= 2)
             {
                 return 'B';
             }
-            else if (3 > section && section > 2)
+            else if (4 > section && section >= 3)
             {
                 return 'C';
             }
-            else if (3 > section && section > 2)
+            else if (5 > section && section >= 4)
             {
                 return 'D';
             }
