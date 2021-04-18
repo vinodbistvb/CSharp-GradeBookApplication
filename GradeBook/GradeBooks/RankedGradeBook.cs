@@ -35,6 +35,11 @@ namespace GradeBook.GradeBooks
                 i++;
             }
 
+            // sort the aray
+
+            Array.Sort(classAverageGrades);
+            Array.Reverse(classAverageGrades);
+
             // find index of averageGrade provided in class AverageGrade
             // Compair with the 20% multiplier to see where it fits. 
 
