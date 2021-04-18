@@ -45,7 +45,7 @@ namespace GradeBook.GradeBooks
 
             var indexOfAverageGrade = Array.IndexOf(classAverageGrades, averageGrade) + 1;
 
-            var section = indexOfAverageGrade % twentyPercentOfClass;
+            var section = indexOfAverageGrade / twentyPercentOfClass;
 
 
             if (1 > section && section >= 0)
