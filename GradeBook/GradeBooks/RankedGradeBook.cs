@@ -1,7 +1,6 @@
 ﻿using GradeBook.Enums;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace GradeBook.GradeBooks
@@ -16,22 +15,51 @@ namespace GradeBook.GradeBooks
         public override char GetLetterGrade(double averageGrade)
         {
 
+            // List<double> classAverageGrades = new List<double>();
+
+
             if (Students.Count < 5)
             {
-                throw new InvalidOperationException("You must have at least 5 students to do ranked grading.");
+
+                throw new InvalidOperationException("Number of Students are less than 5");
+            }
+            double[] classAverageGrades = new double[Students.Count];
+
+            // 20% of the class
+            var twentyPercentOfClass = (int)Math.Ceiling(Students.Count * 0.2);
+            var i = 0;
+
+            foreach (var student in Students)
+            {
+                classAverageGrades[i] = student.AverageGrade;
+                i++;
             }
 
-            var threshold = (int)Math.Ceiling(Students.Count * 0.2);
-            var grades = Students.OrderByDescending(e => e.AverageGrade).Select(e => e.AverageGrade).ToList();
+            // sort the aray
 
-            if (averageGrade >= grades[threshold - 1])
+            Array.Sort(classAverageGrades);
+            Array.Reverse(classAverageGrades);
+
+            // find index of averageGrade provided in class AverageGrade
+            // Compair with the 20% multiplier to see where it fits. 
+
+            if (averageGrade >= classAverageGrades[twentyPercentOfClass - 1])
+            {
                 return 'A';
-            if (averageGrade >= grades[(threshold * 2) - 1])
+            }
+            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 2 - 1])
+            {
                 return 'B';
-            if (averageGrade >= grades[(threshold * 3) - 1])
+            }
+            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 3 - 1])
+            {
                 return 'C';
-            if (averageGrade >= grades[(threshold * 4) - 1])
+            }
+            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 4 - 1])
+            {
                 return 'D';
+            }
+
             return 'F';
         }
     }
