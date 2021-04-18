@@ -47,15 +47,15 @@ namespace GradeBook.GradeBooks
             {
                 return 'A';
             }
-            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 2 - 2])
+            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 2 - 1])
             {
                 return 'B';
             }
-            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 3 - 3])
+            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 3 - 1])
             {
                 return 'C';
             }
-            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 4 - 4])
+            else if (averageGrade >= classAverageGrades[twentyPercentOfClass * 4 - 1])
             {
                 return 'D';
             }
