@@ -22,7 +22,7 @@ namespace GradeBook.GradeBooks
             if (Students.Count > 5)
             {
                 // 20% of the class
-                var twentyPercentOfClass = Students.Count * 0.2;
+                var twentyPercentOfClass = (int)Math.Ceiling(Students.Count * 0.2);
                 var i = 0;
 
                 foreach (var student in Students)
@@ -64,7 +64,7 @@ namespace GradeBook.GradeBooks
             else
             {
                 averageGrade = 0;
-                Console.WriteLine("InvalidOperationException");
+                throw new InvalidOperationException("Number of Students are less than 5");
             }
 
 
